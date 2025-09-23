@@ -1,33 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Miras Hochpharm — Coming Soon</title>
+  <title>MIRAS HOCHPHARM – Launch in Kürze</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Rubik:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    :root { --bg:#0f1220; --fg:#e7e9ee; --muted:#9aa3b2; }
-    html, body { height:100%; margin:0; }
+    :root {
+      --primary: #2c1854; /* purple background */
+      --g1: #475e64;
+      --g2: #4d6d68;
+      --g3: #609b73;
+      --g4: #8af68e;
+      --fg: #fff;
+      --muted: rgba(255,255,255,.75);
+      --card-bg: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html, body { height: 100%; }
     body {
-      display:grid; place-items:center; background:var(--bg); color:var(--fg);
-      font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: var(--fg);
+      font: 16px/1.55 Nunito, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      text-align: center;
     }
+
     .card {
-      text-align:center; padding:3rem 2.5rem; border-radius:16px;
-      background:rgba(255,255,255,0.04); backdrop-filter: blur(6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      max-width:520px; width:92%;
+      width: min(92vw, 720px);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.45);
+      overflow: hidden;
+      backdrop-filter: blur(8px);
     }
-    .logo { max-width:160px; height:auto; margin:0 auto 1.25rem; display:block; }
-    h1 { margin:0 0 .5rem; font-size:1.75rem; letter-spacing:.3px; }
-    p  { margin:.25rem 0; color:var(--muted); }
+
+    /* Logo band with gradient background */
+    .card-header {
+      background: linear-gradient(90deg, var(--g1), var(--g2), var(--g3), var(--g4));
+      padding: 1rem;
+    }
+    .card-header img {
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .card-header img::before {
+        background: white;
+        height: 100%;
+        width: 100%;
+    }
+
+    .card-body {
+      padding: 2rem 1.5rem;
+    }
+
+    h1 {
+      font-family: Rubik, Nunito, Arial, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1rem, 3vw, 1.6rem);
+      margin-bottom: .75rem;
+    }
+    p.lang {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta {
+      display:inline-block;
+      margin-top:.5rem;
+      padding:.75rem 1.1rem;
+      border-radius:12px;
+      color:#000;
+      text-decoration:none;
+      font-weight:600;
+      background:linear-gradient(90deg, var(--g2), var(--g3), var(--g4));
+      transition: transform .08s ease, filter .2s ease;
+    }
+    .cta:hover { transform:translateY(-1px); filter:brightness(1.05); }
+
+    .footer {
+      margin-top:1.5rem;
+      font-size:.9rem;
+      color:var(--muted);
+    }
   </style>
 </head>
 <body>
-  <main class="card">
-    <img class="logo" src="logo.png" alt="Miras Hochpharm Logo" />
-    <h1>Coming Soon</h1>
-    <p>Our new website is on the way.</p>
-    <p>For enquiries: info@mirashochpharm.de</p>
-  </main>
+  <div class="card">
+    <div class="card-header">
+      <img src="miras-logo.png" alt="MIRAS HOCHPHARM Logo" />
+    </div>
+    <div class="card-body">
+      <h1>Wir arbeiten mit Hochdruck daran – die Website für unser Unternehmen mit Sitz in Bad Dürkheim wird in Kürze online gehen.</h1>
+      <p class="lang">EN: We are working at full speed – the website for our company, based in Bad Dürkheim, will be launching soon.</p>
+      <a class="cta" href="mailto:info@mirashochpharm.de?subject=MIRAS%20HOCHPHARM%20–%20Kontakt">Kontakt per E-Mail</a>
+      <div class="footer">© <span id="y"></span> MIRAS HOCHPHARM GmbH</div>
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
